@@ -3,13 +3,13 @@ def introduction():
         "name": "Hacker name generator",
         "desc": "转换为特定格式的名字",
         "author":
-        [
-            "L"
-        ],
+            [
+                "L"
+            ],
         "category":
-        [
-            "工具"
-        ]
+            [
+                "工具"
+            ]
     }
 
 
@@ -76,10 +76,11 @@ def run(source_input: str, forward: bool = True):
     data = None
     if forward:
         data = "".join([char if not char.isalpha() else letters_in_hacker_style[ord(char) - ord_a]
-                   for char in list(source_input.lower())]).upper()
+                        for char in list(source_input.lower())]).upper()
     else:
-        data = "".join([char if letters_in_hacker_style.find(char) == -1 else chr(ord_a + letters_in_hacker_style.find(char))
-                   for char in list(source_input.lower())]).lower()
+        data = "".join(
+            [char if letters_in_hacker_style.find(char) == -1 else chr(ord_a + letters_in_hacker_style.find(char))
+             for char in list(source_input.lower())]).lower()
 
     return {
         "data": data,
