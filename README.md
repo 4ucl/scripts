@@ -8,7 +8,7 @@ git tag -d v1.0.0
 # 删除远程 tag
 git push origin --delete v1.0.0
 # 创建本地 tag
-git tag -a v1.0.0 -m "Tag v1.0.0"
+git tag -a v1.0.0 -m "tag v1.0.0"
 # 推送新 tag 到远程仓库
 git push origin v1.0.0
 ```
