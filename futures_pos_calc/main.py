@@ -22,7 +22,7 @@ def params():
             "position": 0,
             "required": True,
             "uiComponentSchema": {
-                "type": "inputText",
+                "type": "inputNumber",
             },
             "jsonSchema": {
                 "type": "number"
@@ -35,7 +35,7 @@ def params():
             "position": 1,
             "required": True,
             "uiComponentSchema": {
-                "type": "inputText",
+                "type": "inputNumber",
             },
             "jsonSchema": {
                 "type": "number"
@@ -48,7 +48,7 @@ def params():
             "position": 2,
             "required": True,
             "uiComponentSchema": {
-                "type": "inputText",
+                "type": "inputNumber",
             },
             "jsonSchema": {
                 "type": "number"
@@ -74,7 +74,10 @@ def run(risk_amount: float, entry_price: float, stop_loss_price: float):
         """
     # 检查输入是否有效，防止除以零的错误
     if entry_price == stop_loss_price:
-        return {"error": "开仓点位 (Entry Price) 不能等于止损点位 (Stop Loss Price)。"}
+        return {
+            "data": "开仓点位不能等于止损点位。",
+            "type": "plaintext"
+        }
 
     # 1. 计算每单位的风险（开仓价和止损价之间的绝对差值）
     # |开仓点位 - 止损点位|
@@ -99,9 +102,9 @@ def run(risk_amount: float, entry_price: float, stop_loss_price: float):
 
     # 整理并返回结果
     data = f"""
-        买入数量 (Position Size): ${position_size},
-        止盈点位 (Take Profit Price): ${take_profit_price},
-        止盈金额 (Take Profit Amount): ${take_profit_amount},
+    买入数量 (Position Size): ${position_size},
+    止盈点位 (Take Profit Price): ${take_profit_price},
+    止盈金额 (Take Profit Amount): ${take_profit_amount},
     """
 
     return {
