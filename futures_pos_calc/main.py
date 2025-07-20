@@ -102,9 +102,9 @@ def run(risk_amount: float, entry_price: float, stop_loss_price: float):
 
     # 整理并返回结果
     data = f"""
-    买入数量 (Position Size): ${position_size},
-    止盈点位 (Take Profit Price): ${take_profit_price},
-    止盈金额 (Take Profit Amount): ${take_profit_amount},
+    买入数量 (Position Size): {position_size}\n
+    止盈点位 (Take Profit Price): {take_profit_price}\n
+    止盈金额 (Take Profit Amount): {take_profit_amount}\n
     """
 
     return {
