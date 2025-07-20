@@ -36,6 +36,9 @@ def params():
             "required": True,
             "uiComponentSchema": {
                 "type": "inputNumber",
+                "props": {
+                    "useGrouping": False
+                }
             },
             "jsonSchema": {
                 "type": "number"
@@ -49,6 +52,9 @@ def params():
             "required": True,
             "uiComponentSchema": {
                 "type": "inputNumber",
+                "props": {
+                    "useGrouping": False
+                }
             },
             "jsonSchema": {
                 "type": "number"
